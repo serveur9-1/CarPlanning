@@ -5,7 +5,6 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="une plateforme de suivi pour les eleves du lycée">
     <meta name="author" content="Threeboys">
     <meta name="keywords" content="Car Planning">
         <!-- Title Page-->
