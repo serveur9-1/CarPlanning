@@ -1,7 +1,7 @@
-@extends('layout')
-@section('title','Tableau de bord - page parent')
+@extends('layout-admin')
+@section('title','Administration')
 @section('content')
-<div class="section__content section__content--p30">
+    <div class="section__content section__content--p30">
                     
             <div class="container-fluid">
                 
@@ -74,5 +74,4 @@
                 </div>
             </div>
         </div>
- 
  @endsection

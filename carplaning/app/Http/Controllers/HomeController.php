@@ -9,11 +9,15 @@ class HomeController extends Controller
 {
     public function home()
 	{
-		return view('suscriber.dashboardP.dashboard');
+		$all_suscribers = suscriber::all();
+
+		return View('suscriber.dashboardP.dashboard')->with('items',$all_suscribers);
+		
 	}
 	public function homeAdmin()
 	{
 		return view('administration.administrationA.adminA');
+		
 	}
 
 	public function marque()
