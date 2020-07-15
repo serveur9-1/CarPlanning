@@ -61,3 +61,8 @@ Route::post('/suscribers',[
     'as' => 'changeKilometrage',
     'uses' => 'HomeController@changeKilometrage'
 ])->where('id','[0-9]+');
+
+
+Route::resources([
+    'souscriptions' => 'SouscriptionController',
+]);
