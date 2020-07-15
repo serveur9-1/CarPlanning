@@ -32,8 +32,8 @@ class souscriptionRequest extends FormRequest
             'kilometrage' => ['required', 'max:255'],
             'visite' => ['required', 'max:255'],
             'assurance' => ['required', 'max:255'],
-            'paiement' => ['required', 'min:8'],
-            'numero' => ['required', 'min:8'],
+            'paiement' => ['nullable', 'min:8'],
+            'numero' => ['nullable', 'min:8'],
             'email' => ['required', 'email', 'max:255'],
             'parrain' => ['nullable']
         ];

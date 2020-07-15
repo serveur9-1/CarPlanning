@@ -33,7 +33,7 @@ route::post('/souscriptionAdd', [
 
 route::get('/admin',[
     'as' => 'HomeAdmin',
-    'uses' => 'HomeController@homeAdmin'
+    'uses' => 'HomeController@suscribers'
 ]);
 
 route::get('/Marques',[
@@ -55,4 +55,9 @@ route::get('/add_marques',[
 Route::post('/admin/suscribers/changeState/{id}/{enable}',[
     'as' => 'changeStateSuscribers',
     'uses' => 'HomeController@changeStateSuscribers'
+])->where('id','[0-9]+');
+
+Route::post('/suscribers',[
+    'as' => 'changeKilometrage',
+    'uses' => 'HomeController@changeKilometrage'
 ])->where('id','[0-9]+');

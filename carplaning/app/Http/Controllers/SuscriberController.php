@@ -15,7 +15,9 @@ class SuscriberController extends Controller
 
 	public function kilometrage()
 	{
-		return view('suscriber.kilometrage.kilometrage');
+        $all_suscribers = suscriber::all();
+
+		return View('suscriber.kilometrage.kilometrage')->with('items',$all_suscribers);
 	}
 
 	//Souscription
@@ -41,7 +43,7 @@ class SuscriberController extends Controller
 
         $suscribe->save();
 
-        return redirect()->back()->with('success',"Merci , Vous avez été bien enregistré. Nous allons vous contacter d'ici peu");
+        return redirect()->back()->with('success',"eService , vous remercie pour votre souscription au service CarPlanning. Vous allez recevoir une confirmation par e-mail/sms. Bonne route !");
     }
 
 }

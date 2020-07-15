@@ -6,6 +6,7 @@
         <h2 class="title-1 m-b-25">Souscritption</h2>
             <div class="row">
                 <form action="{{ route('souscriptionAdd') }}" method="post" class="row col-lg-12">
+                    @csrf
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -21,10 +22,13 @@
                                                 <div class="form-group">
                                                     <label for="select" class=" form-control-label">Marque du véhicule</label>
                                                     <select name="marque" id="select" class="form-control">
-                                                        <option value="0">Please select</option>
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
+                                                        <option value="0" disabled>Please select</option>
+                                                        <option value="1">Audi</option>
+                                                        <option value="2">bmw</option>
+                                                        <option value="3">cadilac</option>
+                                                        <option value="1">Chevrolet</option>
+                                                        <option value="2">Chrysler</option>
+                                                        <option value="3">citroen</option>
                                                     </select>
                                                 </div>
                                             </div>

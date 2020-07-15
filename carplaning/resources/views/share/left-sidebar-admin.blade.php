@@ -4,7 +4,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                     <a href="#">
-                        <img src="{{ asset('/assets/images/icon/logo.png')}}" alt="edu Admin" />
+                      <img src="{{ asset('/assets/images/icon/logo.png')}}" alt="CoolAdmin" />
                     </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -20,10 +20,10 @@
                         <li class="active has-sub">
                             <a class="js-arrow" href="{{ route('HomeAdmin')}}"><i class="fas fa-users"></i>Utilisateurs</a>
                         </li>
-                        <li>
-                            <a href="{{ route('homeAdmin')}}">
+                        <!-- <li>
+                            <a href="{{ route('HomeAdmin')}}">
                             <i class="fas fa-user"></i>Users</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('marques')}}">
                             <i class="fas fa-table"></i>Marques</a>
@@ -56,9 +56,9 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                        <!-- <li class="active has-sub">
                             <a class="js-arrow" href="{{ route('HomeAdmin')}}"><i class="fas fa-users"></i>Utilisateurs</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('marques')}}">
                             <i class="fas fa-table"></i>Marques</a>

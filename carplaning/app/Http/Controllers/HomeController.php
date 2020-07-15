@@ -54,6 +54,22 @@ class HomeController extends Controller
         }
 
         return redirect()->route('suscribers')->with('success',"Vous avez changé le statut de la souscription avec succès");
+	}
+	
+	public function changeKilometrage(Request $request)
+    {
+		$validatedData = $request->validate([
+			'immatricule' => 'required',
+			'kilometrage' => 'required',
+		]);
+
+		$suscr = suscriber::where('immatriculation', $validatedData['immatricule'])->first();
+		dd($suscr);
+
+		$suscr->kilometrage = $validatedData['kilometrage'];
+		$suscr->save();
+		dd($suscr);
+        // return redirect()->route('suscribers')->with('success',"eService , vous remercie pour votre mise à jour de kilométrage pour le suivi CarPlanning. Vous alle recevoirune confirmation par mail/sms. Bonne route");
     }
 }
 
