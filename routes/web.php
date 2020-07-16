@@ -11,6 +11,7 @@
 |
 */
 
+
 route::get('/',[
     'as' => 'home',
     'uses' => 'HomeController@home'
@@ -63,23 +64,31 @@ Route::post('/suscribers',[
 ])->where('id','[0-9]+');
 
 
-Route::resources([
-    'souscriptions' => 'SouscriptionController',
-]);
+Route::group(['middleware'=> 'auth'],function(){
 
-Route::post('/souscription/{id}/switch/{enable}',[
-    'as' => 'changeStateSuscribers',
-    'uses' => 'SouscriptionController@_switch'
-])->where('id','[0-9]+');
+    Route::resources([
+        'souscriptions' => 'SouscriptionController',
+    ]);
 
-route::get('/kilo',[
-    'as' => 'kilometrage.edit',
-    'uses' => 'SouscriptionController@kilo_create'
-]);
+    Route::post('/souscription/{id}/switch/{enable}',[
+        'as' => 'changeStateSuscribers',
+        'uses' => 'SouscriptionController@_switch'
+    ])->where('id','[0-9]+');
 
-route::put('/kilo',[
-    'as' => 'kilometrage.update',
-    'uses' => 'SouscriptionController@kilo_update'
-]);
+    Route::get('/kilo',[
+        'as' => 'kilometrage.edit',
+        'uses' => 'SouscriptionController@kilo_create'
+    ]);
 
-Auth::routes();
+    Route::put('/kilo',[
+        'as' => 'kilometrage.update',
+        'uses' => 'SouscriptionController@kilo_update'
+    ]);
+
+    Auth::routes();
+
+    Route::get('/',[
+        'as' => 'home',
+        'uses' => 'HomeController@index'
+    ]);
+});

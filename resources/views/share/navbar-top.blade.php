@@ -12,7 +12,7 @@
                                             <img src="{{ asset('/assets/images/icon/admin.jpeg')}}" alt="serveur" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">sande franck</a>
+                                            <a class="js-acc-btn" href="#">{{ $auth->user->email }}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="account-dropdown__footer">

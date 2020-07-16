@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Souscription;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = Souscription::all();
+        return view('suscriber.dashboardP.suscribers')->with('items', $data);
     }
 }

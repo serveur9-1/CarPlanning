@@ -12,7 +12,7 @@
                                             <img src="{{ asset('/assets/images/icon/admin.jpeg')}}" alt="serveur" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">sande franck</a>
+                                            <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -23,9 +23,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">sande franck</a>
+                                                        <a href="#">{{ Auth::user()->name }}</a>
                                                     </h5>
-                                                    <span class="email">sande@gmail.com</span>
+                                                    <span class="email">{{ Auth::user()->email }}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
