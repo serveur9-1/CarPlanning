@@ -21,10 +21,10 @@
                             <a class="js-arrow" href="{{ route('home')}}"><i class="fas fa-tachometer-alt"></i>accueil</a>
                         </li>
                         <li>
-                            <a href="{{ route('suscriber')}}"><i class="far fa-check-square"></i>Souscription</a>
+                            <a href="{{ route('souscriptions')}}"><i class="far fa-check-square"></i>Souscription</a>
                         </li>
                         <li>
-                            <a href="{{ route('kilometrage')}}"><i class="fas fa-table"></i>Changer Kilométrage</a>
+                            <a href="{{ route('kilometrage.edit')}}"><i class="fas fa-table"></i>Changer Kilométrage</a>
                         </li>
                     </ul>
                 </div>
