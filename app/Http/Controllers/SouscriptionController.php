@@ -78,7 +78,7 @@ class SouscriptionController extends Controller
     public function kilo_create()
     {
         $_subs = new Souscription();
-        $kilo = $_subs->newQuery()->select(['id','immatriculation', 'kilometrage'])->get();
+        $kilo = $_subs->newQuery()->select(['id','immatriculation', 'kilometrage'])->where('user_id', auth()->user()->id)->get();
 
         return View('suscriber.kilometrage.kilometrage')->with('items',$kilo);
     }
