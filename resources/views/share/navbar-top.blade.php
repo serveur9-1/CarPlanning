@@ -9,28 +9,18 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{ asset('/assets/images/icon/admin1.jpg')}}" alt="serveur" />
+                                            <img src="{{ asset('/assets/images/icon/admin.jpeg')}}" alt="serveur" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">sande franck</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="{{ asset('/assets/images/icon/admin1.jpg')}}" alt="John Doe" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">sande franck</a>
-                                                    </h5>
-                                                    <span class="email">sande@gmail.com</span>
-                                                </div>
-                                            </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                    <i class="zmdi zmdi-power"></i>Déconnexion</a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
                                             </div>
                                         </div>
                                     </div>

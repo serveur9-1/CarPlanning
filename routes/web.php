@@ -81,3 +81,5 @@ route::put('/kilo',[
     'as' => 'kilometrage.update',
     'uses' => 'SouscriptionController@kilo_update'
 ]);
+
+Auth::routes();
