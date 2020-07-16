@@ -11,8 +11,9 @@
                             <strong>Informations </strong>
                             <small> Véhicule</small>
                         </div>
-                        <form action="{{ route('changeKilometrage') }}" method="post" class="row col-lg-12">
-                        @csrf
+                        <form action="{{ route('kilometrage.update') }}" method="post" class="row col-lg-12">
+                            @csrf
+                            @method('PUT')
                             <div class="card-body card-block">
                                 <div class="form-group">
                                     <div class="row">
@@ -31,7 +32,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="vat" class=" form-control-label">Nouveau Kilométrage</label>
-                                            <input type="text" id="vat" name="kilometrage" class="form-control">
+                                            <input value="{{old('kilometrage')}}" placeholder="L'ancien kilométrage est {{$item->kilometrage}}" type="text" id="vat" name="kilometrage" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +43,7 @@
                                 </button>
                             </div>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>

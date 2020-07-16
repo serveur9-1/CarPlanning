@@ -53,7 +53,7 @@ route::get('/add_marques',[
 
 
 Route::post('/admin/suscribers/changeState/{id}/{enable}',[
-    'as' => 'changeStateSuscribers',
+    'as' => 'changeStateSuscr',
     'uses' => 'HomeController@changeStateSuscribers'
 ])->where('id','[0-9]+');
 
@@ -65,4 +65,19 @@ Route::post('/suscribers',[
 
 Route::resources([
     'souscriptions' => 'SouscriptionController',
+]);
+
+Route::post('/souscription/{id}/switch/{enable}',[
+    'as' => 'changeStateSuscribers',
+    'uses' => 'SouscriptionController@_switch'
+])->where('id','[0-9]+');
+
+route::get('/kilo',[
+    'as' => 'kilometrage.edit',
+    'uses' => 'SouscriptionController@kilo_create'
+]);
+
+route::put('/kilo',[
+    'as' => 'kilometrage.update',
+    'uses' => 'SouscriptionController@kilo_update'
 ]);

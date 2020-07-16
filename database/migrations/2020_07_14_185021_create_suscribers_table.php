@@ -23,10 +23,10 @@ class CreateSuscribersTable extends Migration
             $table->string('kilometrage');
             $table->string('expire_visite');
             $table->string('expire_assurance');
-            $table->string('numero_payement');
-            $table->string('numero');
+            $table->string('numero_payement')->nullable()->change();
+            $table->string('numero')->nullable()->change();
             $table->string('email');
-            $table->string('parrain');
+            $table->string('parrain')->nullable()->change();
             $table->boolean('is_active')->nullable()->default(0);
             $table->boolean('is_pro')->nullable()->default(0);
             $table->timestamps();
