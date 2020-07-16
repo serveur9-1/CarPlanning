@@ -66,3 +66,7 @@ Route::post('/suscribers',[
 Route::resources([
     'souscriptions' => 'SouscriptionController',
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
