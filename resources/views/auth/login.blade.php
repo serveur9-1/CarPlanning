@@ -29,7 +29,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Adresse E-mail</label>
                                     <input id="email" type="email" class="au-input au-input--full form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Mot de passe</label>
                                     <input id="password" type="password" class="au-input au-input--full form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
