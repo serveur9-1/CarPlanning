@@ -29,11 +29,11 @@ class SouscriptionMail extends Mailable
     public function build()
     {
         return $this->from("noreply@carPlanning.ci", "Service carPlanning")
-                    ->subject($this->event->subject)
+                    ->subject("Souscription au service")
                     ->to($this->event->receiver)
-                    ->markdown('emails.name')->with([
-                        'user' => $this->event->user,
-                        'is_enable' => $this->event->is_enable,
+                    ->markdown('emails.souscription')->with([
+                        "marque" => $this->event["marque"],
+                        "immatriculation" => $this->event["immatriculation"]
                     ]);
     }
 }

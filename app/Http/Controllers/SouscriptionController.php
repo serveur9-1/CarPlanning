@@ -94,8 +94,6 @@ class SouscriptionController extends Controller
         $kilo->kilometrage = $validated['kilometrage'];
         $kilo->save();
 
-        //Envoie de mail
-
         // Envoie de mail
         Mail::send(new KilometrageMail($kilo));
 
