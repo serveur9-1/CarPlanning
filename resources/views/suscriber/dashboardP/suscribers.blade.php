@@ -25,6 +25,8 @@
 
                             @if(!Auth::user()->is_admin)
                                 <div class="table-data__tool-right">
+                                    <a href="{{ route('souscriptions.create') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        Souscrire</a>
                                     <button class="au-btn au-btn-icon btn-warning au-btn--small">
                                         <i class="zmdi zmdi-print"></i>Imprimer en PDF</button>
                                 </div>

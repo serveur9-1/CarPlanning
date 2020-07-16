@@ -30,10 +30,13 @@ class KilometrageMail extends Mailable
     {
         return $this->from("noreply@carPlanning.ci", "Service carPlanning")
                     ->subject("Modification de kilométrage")
-                    ->to("ymjm97@gmail.com")
+                    ->to(auth()->user()->email)
                     ->markdown('emails.kilometrage')->with([
                         "marque" => $this->event["marque"],
-                        "immatriculation" => $this->event["immatriculation"]
+                        "immatriculation" => $this->event["immatriculation"],
+                        "kilometrage" => $this->event["kilometrage"],
+                        "new" => $this->event["new_updated"],
+                        "old" => $this->event["old_updated"],
                     ]);
     }
 }

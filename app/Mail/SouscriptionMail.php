@@ -30,7 +30,7 @@ class SouscriptionMail extends Mailable
     {
         return $this->from("noreply@carPlanning.ci", "Service carPlanning")
                     ->subject("Souscription au service")
-                    ->to($this->event->receiver)
+                    ->to($this->event->user->email)
                     ->markdown('emails.souscription')->with([
                         "marque" => $this->event["marque"],
                         "immatriculation" => $this->event["immatriculation"]

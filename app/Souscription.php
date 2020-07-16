@@ -23,7 +23,10 @@ class Souscription extends Model
         'email',
         'is_pro',
         'is_active',
-        'parrain'
+        'parrain',
+        'user_id',
+        'old_updated',
+        'new_updated'
     ];
 
     public function user(){

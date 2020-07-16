@@ -25,7 +25,7 @@
                                                     <select name="marque" id="select" class="form-control">
                                                         <option value="0" disabled>Please select</option>
                                                         @foreach($marques as $item)
-                                                        <option class="text-uppercase" value="{{$item->id}}">{{$item->noms}}</option>
+                                                        <option class="text-uppercase" value="{{$item->noms}}">{{$item->noms}}</option>
                                                         @endforeach
                                                     </select>
                                                     @error('marque')
@@ -95,7 +95,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="postal-code" class=" form-control-label">Kilométrage actuel</label>
-                                                <input value="value="{{ old('kilometrage') }}" " type="text" id="postal-code"  class="form-control" name="kilometrage">
+                                                <input value="{{ old('kilometrage') }}"  type="text" id="postal-code"  class="form-control" name="kilometrage">
                                                 @error('kilometrage')
                                                 <small class="text-danger" role="alert">
                                                     <strong>{{ $message }}</strong>

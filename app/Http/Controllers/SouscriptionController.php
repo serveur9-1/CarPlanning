@@ -65,7 +65,8 @@ class SouscriptionController extends Controller
             'numero' => $request->numero,
             'email' => $request->email,
             'parrain' => $request->parrain,
-            'user_id' => auth()->user()->is_admin
+            'user_id' => auth()->user()->id,
+            'new_updated' => date("Y-m-d H:m:s"),
         ]);
 
         return redirect()->back()->with('success',"eService , vous remercie pour votre souscription au service CarPlanning. Vous allez recevoir une confirmation par e-mail/sms. Bonne route !");
@@ -100,6 +101,8 @@ class SouscriptionController extends Controller
         $kilo = $_subs->newQuery()->findOrFail(3);
 
         $kilo->kilometrage = $validated['kilometrage'];
+        $kilo->old_updated = $kilo->new_updated;
+        $kilo->new_updated = date("Y-m-d H:m:s");
         $kilo->save();
 
         // Envoie de mail
