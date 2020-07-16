@@ -98,7 +98,8 @@ class SouscriptionController extends Controller
         ]);
 
         $_subs = new Souscription();
-        $kilo = $_subs->newQuery()->findOrFail(3);
+        $kilo = $_subs->newQuery()->where("immatriculation",$validated['immatricule'])->first();
+
 
         $kilo->kilometrage = $validated['kilometrage'];
         $kilo->old_updated = $kilo->new_updated;
