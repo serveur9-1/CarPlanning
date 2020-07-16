@@ -17,6 +17,16 @@ Route::group(['middleware'=> 'auth'],function(){
         'souscriptions' => 'SouscriptionController',
     ]);
 
+    Route::get('souscriptions/export/csv',[
+        'as' => 'export.csv',
+        'uses' => 'SouscriptionController@export_csv'
+    ]);
+
+    Route::get('souscriptions/export/xlsx',[
+        'as' => 'export.xlsx',
+        'uses' => 'SouscriptionController@export_xlsx'
+    ]);
+
     Route::post('/souscription/{id}/switch/{enable}',[
         'as' => 'changeStateSuscribers',
         'uses' => 'SouscriptionController@_switch'

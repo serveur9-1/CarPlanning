@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SouscriptionsExport;
 use App\Http\Requests\souscriptionRequest;
 use App\Mail\KilometrageMail;
 use App\Mail\SouscriptionMail;
@@ -10,6 +11,7 @@ use App\Souscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SouscriptionController extends Controller
 {
@@ -29,6 +31,16 @@ class SouscriptionController extends Controller
         }
 
         return view('suscriber.dashboardP.suscribers')->with('items', $data);
+    }
+
+    public function export_csv()
+    {
+        return Excel::download(new SouscriptionsExport, 'souscriptions.csv');
+    }
+
+    public function export_xlsx()
+    {
+        return Excel::download(new SouscriptionsExport, 'souscriptions.xlsx');
     }
 
     /**

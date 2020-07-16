@@ -15,20 +15,23 @@
                             </div>
                             @if(Auth::user()->is_admin)
                             <div class="table-data__tool-right">
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    <i class="zmdi zmdi-print"></i>Imprimer en csv</button>
+                                <a href="{{ route('export.csv') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-print"></i>Imprimer en csv</a>
 
-                                <button class="au-btn au-btn-icon btn-warning au-btn--small">
-                                    <i class="zmdi zmdi-print"></i>Imprimer en PDF</button>
+                                <a href="{{ route('export.xlsx') }}" class="au-btn au-btn-icon btn-warning au-btn--small">
+                                    <i class="zmdi zmdi-print"></i>Imprimer en xlsx</a>
                             </div>
                             @endif
 
                             @if(!Auth::user()->is_admin)
                                 <div class="table-data__tool-right">
-                                    <a href="{{ route('souscriptions.create') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a href="{{ route('souscriptions.create') }}" class="au-btn au-btn-icon btn-danger au-btn--small">
                                         Souscrire</a>
-                                    <button class="au-btn au-btn-icon btn-warning au-btn--small">
-                                        <i class="zmdi zmdi-print"></i>Imprimer en PDF</button>
+                                    <a href="{{ route('export.csv') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-print"></i>Imprimer en csv</a>
+
+                                    <a href="{{ route('export.xlsx') }}" class="au-btn au-btn-icon btn-warning au-btn--small">
+                                        <i class="zmdi zmdi-print"></i>Imprimer en xlsx</a>
                                 </div>
                             @endif
                         </div>
