@@ -1,10 +1,10 @@
-@extends('layout-admin')
+@extends('layout')
 @section('title','Administration')
 @section('content')
     <div class="section__content section__content--p30">
-                    
+
             <div class="container-fluid">
-                
+
                 <div class="row m-t-30">
                     <div class="col-md-12">
 
@@ -13,10 +13,22 @@
                             <div class="table-data__tool-left">
                                <h3 class="title-5 m-b-25">Souscriptions</h3>
                             </div>
+                            @if(Auth::user()->is_admin)
                             <div class="table-data__tool-right">
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    <i class="zmdi zmdi-print"></i>Imprimé en csv</button>
+                                    <i class="zmdi zmdi-print"></i>Imprimer en csv</button>
+
+                                <button class="au-btn au-btn-icon btn-warning au-btn--small">
+                                    <i class="zmdi zmdi-print"></i>Imprimer en PDF</button>
                             </div>
+                            @endif
+
+                            @if(!Auth::user()->is_admin)
+                                <div class="table-data__tool-right">
+                                    <button class="au-btn au-btn-icon btn-warning au-btn--small">
+                                        <i class="zmdi zmdi-print"></i>Imprimer en PDF</button>
+                                </div>
+                            @endif
                         </div>
 
                         <div class="table-responsive m-b-40 text-center">
@@ -33,12 +45,14 @@
                                         <th>Expiration assurance</th>
                                         <th>E-mail</th>
                                         <th>Status</th>
-                                        <th>Activé</th>
+                                        @if(Auth::user()->is_admin)
+                                        <th>Activer</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                @foreach($items as $item)   
+                                @foreach($items as $item)
                                     <tr>
                                         <td>{{ $item->marque }}</td>
                                         <td>{{ $item->model }}</td>
@@ -50,11 +64,12 @@
                                         <td>{{ $item->expire_assurance }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>@if($item->is_pro )<span class="badge badge-success">Pro</span>@else <span class="badge badge-primary">Individuelle</span>@endif</td>
+                                        @if(Auth::user()->is_admin)
                                         <td>
-                                        <div class="confirm-switch">
-                                            <input onchange="change{{ $item->id }}()" type="checkbox" id="confirm-switch{{ $item->id }}" @if($item->is_active) checked @endif>
-                                            <label for="confirm-switch{{ $item->id }}"></label>
-                                        </div>
+                                            <div class="confirm-switch">
+                                                <input onchange="change{{ $item->id }}()" type="checkbox" id="confirm-switch{{ $item->id }}" @if($item->is_active) checked @endif>
+                                                <label for="confirm-switch{{ $item->id }}"></label>
+                                            </div>
                                             <script>
                                                 function change{{ $item->id }}(){
                                                     document.getElementById("changeStateForm{{ $item->id }}").submit();
@@ -64,6 +79,7 @@
                                                 @csrf
                                             </form>
                                         </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -23,12 +23,22 @@ class CreateSuscribersTable extends Migration
             $table->string('kilometrage');
             $table->string('expire_visite');
             $table->string('expire_assurance');
-            $table->string('numero_payement')->nullable()->change();
-            $table->string('numero')->nullable()->change();
+            $table->string('numero_payement')->nullable();
+            $table->string('numero')->nullable();
             $table->string('email');
-            $table->string('parrain')->nullable()->change();
+            $table->string('parrain')->nullable();
+            $table->timestamp('new_updated')->nullable();
+            $table->timestamp('old_updated')->nullable();
             $table->boolean('is_active')->nullable()->default(0);
             $table->boolean('is_pro')->nullable()->default(0);
+
+            $table->unsignedBigInteger('user_id')->index();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

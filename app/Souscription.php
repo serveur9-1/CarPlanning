@@ -25,4 +25,8 @@ class Souscription extends Model
         'is_active',
         'parrain'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

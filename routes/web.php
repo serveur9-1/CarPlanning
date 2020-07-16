@@ -11,59 +11,6 @@
 |
 */
 
-
-route::get('/',[
-    'as' => 'home',
-    'uses' => 'HomeController@home'
-]);
-
-route::get('/suscriber',[
-    'as' => 'suscriber',
-    'uses' => 'SuscriberController@suscriber'
-]);
-
-route::get('/kilometrage',[
-    'as' => 'kilometrage',
-    'uses' => 'SuscriberController@kilometrage'
-]);
-
-route::post('/souscriptionAdd', [
-    'as' => 'souscriptionAdd',
-    'uses' => 'SuscriberController@souscriptionAdd'
-]);
-
-route::get('/admin',[
-    'as' => 'HomeAdmin',
-    'uses' => 'HomeController@suscribers'
-]);
-
-route::get('/Marques',[
-    'as' => 'marques',
-    'uses' => 'HomeController@marque'
-]);
-
-route::get('/suscribers',[
-    'as' => 'suscribers',
-    'uses' => 'HomeController@suscribers'
-]);
-
-route::get('/add_marques',[
-    'as' => 'add_marques',
-    'uses' => 'HomeController@add_marques'
-]);
-
-
-Route::post('/admin/suscribers/changeState/{id}/{enable}',[
-    'as' => 'changeStateSuscr',
-    'uses' => 'HomeController@changeStateSuscribers'
-])->where('id','[0-9]+');
-
-Route::post('/suscribers',[
-    'as' => 'changeKilometrage',
-    'uses' => 'HomeController@changeKilometrage'
-])->where('id','[0-9]+');
-
-
 Route::group(['middleware'=> 'auth'],function(){
 
     Route::resources([
@@ -75,20 +22,20 @@ Route::group(['middleware'=> 'auth'],function(){
         'uses' => 'SouscriptionController@_switch'
     ])->where('id','[0-9]+');
 
-    Route::get('/kilo',[
+    Route::get('/kilometrage',[
         'as' => 'kilometrage.edit',
         'uses' => 'SouscriptionController@kilo_create'
     ]);
 
-    Route::put('/kilo',[
+    Route::put('/kilometrage',[
         'as' => 'kilometrage.update',
         'uses' => 'SouscriptionController@kilo_update'
     ]);
-
-    Auth::routes();
 
     Route::get('/',[
         'as' => 'home',
         'uses' => 'HomeController@index'
     ]);
 });
+
+Auth::routes();

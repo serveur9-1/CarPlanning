@@ -18,10 +18,10 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="{{ route('home')}}"><i class="fas fa-tachometer-alt"></i>accueil</a>
+                            <a class="js-arrow" href="{{ route('home')}}"><i class="fas fa-tachometer-alt"></i>Accueil</a>
                         </li>
                         <li>
-                            <a href="{{ route('souscriptions')}}"><i class="far fa-check-square"></i>Souscription</a>
+                            <a href="{{ route('souscriptions.index')}}"><i class="far fa-check-square"></i>Souscription</a>
                         </li>
                         <li>
                             <a href="{{ route('kilometrage.edit')}}"><i class="fas fa-table"></i>Changer Kilométrage</a>
@@ -43,14 +43,16 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="{{ route('home')}}"><i class="fas fa-tachometer-alt"></i>accueil</a>
+                            <a class="js-arrow" href="{{ route('home')}}"><i class="fas fa-tachometer-alt"></i>Accueil</a>
                         </li>
                         <li>
-                            <a href="{{ route('suscriber')}}"><i class="far fa-check-square"></i>Souscription</a>
+                            <a href="{{ route('souscriptions.index')}}"><i class="far fa-check-square"></i>Souscription</a>
                         </li>
-                        <li>
-                            <a href="{{ route('kilometrage')}}"><i class="fas fa-table"></i>Changer Kilométrage</a>
-                        </li>
+                        @if(!Auth::user()->is_admin)
+                            <li>
+                                <a href="{{ route('kilometrage.edit')}}"><i class="fas fa-table"></i>Changer Kilométrage</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

@@ -9,10 +9,10 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{ asset('/assets/images/icon/admin.jpeg')}}" alt="serveur" />
+                                            <img src="{{ asset('/assets/images/icon/admin.jpeg')}}" alt="profil" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">{{ $auth->user->email }}</a>
+                                            <a class="js-acc-btn" href="#">{{ Auth::user()->name }} <small>({{ Auth::user()->email }})</small></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="account-dropdown__footer">

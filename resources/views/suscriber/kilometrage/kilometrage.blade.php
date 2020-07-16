@@ -3,7 +3,7 @@
 @section('content')
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-        <h2 class="title-1 m-b-25">Souscritption</h2>
+        <h2 class="title-1 m-b-25">Souscription</h2>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="vat" class=" form-control-label">Nouveau Kilométrage</label>
-                                            <input value="{{old('kilometrage')}}" placeholder="L'ancien kilométrage est {{$item->kilometrage}}" type="text" id="vat" name="kilometrage" class="form-control">
+                                            <input value="{{old('kilometrage')}}" placeholder="xxxkm/h" type="text" id="vat" name="kilometrage" class="form-control">
                                         </div>
                                     </div>
                                 </div>

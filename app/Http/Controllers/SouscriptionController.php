@@ -20,7 +20,14 @@ class SouscriptionController extends Controller
      */
     public function index()
     {
-        $data = Souscription::all();
+        $data = [];
+
+        if(auth()->user()->is_admin){
+            $data = Souscription::all();
+        } else {
+            $data = Souscription::all()->where('user_id',auth()->user()->id);
+        }
+
         return view('suscriber.dashboardP.suscribers')->with('items', $data);
     }
 
@@ -57,7 +64,8 @@ class SouscriptionController extends Controller
             'numero_payement' => $request->paiement,
             'numero' => $request->numero,
             'email' => $request->email,
-            'parrain' => $request->parrain
+            'parrain' => $request->parrain,
+            'user_id' => auth()->user()->is_admin
         ]);
 
         return redirect()->back()->with('success',"eService , vous remercie pour votre souscription au service CarPlanning. Vous allez recevoir une confirmation par e-mail/sms. Bonne route !");
